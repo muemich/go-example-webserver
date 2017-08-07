@@ -4,4 +4,10 @@ pipeline:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     commands:
-      - docker build -t muemich/go-example-webserver .
+      - docker build -t muemich/go-example-webserver 
+  test:
+    image: docker
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    commands:
+      - docker run muemich/go-example-webserver /test.sh.
