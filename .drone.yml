@@ -25,5 +25,5 @@ pipeline:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     commands:
-      - docker pull muellermich/example-webserver
+      - docker pull muellermich/go-example-webserver
       - docker stack deploy -c ./docker-compose.yml example-webserver
