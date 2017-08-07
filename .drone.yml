@@ -20,3 +20,10 @@ pipeline:
     commands:
       - docker login -u muellermich -p $PASS
       - docker push muellermich/go-example-webserver
+  deploy:
+    image: docker
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    commands:
+      - docker pull muellermich/example-webserver
+      - docker stack deploy -c ./docker-compose.yml example-webserver
