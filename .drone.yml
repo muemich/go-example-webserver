@@ -4,13 +4,13 @@ pipeline:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     commands:
-      - docker build -t muemich/go-example-webserver .
+      - docker build -t muellermich/go-example-webserver .
   test:
     image: docker
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     commands:
-      - docker run muemich/go-example-webserver /test.sh
+      - docker run muellermich/go-example-webserver /test.sh
   push:
     image: docker
     environment:
@@ -18,5 +18,5 @@ pipeline:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     commands:
-      - docker login -u muemich -p $PASS
-      - docker push muemich/go-example-webserver
+      - docker login -u muellermich -p $PASS
+      - docker push muellermich/go-example-webserver
